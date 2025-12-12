@@ -34,20 +34,20 @@
       padding: 22px;
     }
 
-    /* Left image block */
+    /* Left image */
     .photo-card{
       padding: 18px;
     }
 
     .headshot{
       width: 100%;
-      height: 420px;          /* adjust if you want taller/shorter */
+      height: 420px;
       object-fit: cover;
       border-radius: 12px;
       display: block;
     }
 
-    /* Right content blocks */
+    /* Right content */
     h1{
       margin: 0;
       font-size: 44px;
@@ -70,7 +70,6 @@
     }
 
     .btn{
-      display: inline-block;
       padding: 14px 22px;
       background:#ffffff;
       color:#0b0b0b;
@@ -80,7 +79,6 @@
     }
 
     .link-btn{
-      display: inline-block;
       padding: 14px 22px;
       background:#111;
       color:#f2f2f2;
@@ -115,14 +113,12 @@
   <div class="container">
     <div class="grid">
 
-      <!-- LEFT: photo -->
+      <!-- LEFT: headshot -->
       <div class="card photo-card">
-        <!-- If your photo is in the repo root (as your screenshot showed), keep "headshot.jpg".
-             If you moved it into a folder called static, change to: static/headshot.jpg -->
         <img class="headshot" src="headshot.jpg" alt="Nicolas Prosperi">
       </div>
 
-      <!-- RIGHT: name + about + buttons -->
+      <!-- RIGHT: text + buttons -->
       <div>
         <div class="card">
           <h1>Nicolas Prosperi</h1>
@@ -135,13 +131,13 @@
           </p>
 
           <div class="actions">
-            <!-- PDF in repo root -->
             <a class="btn" href="Nicolas%20Prosperi%20Resume.pdf" target="_blank" rel="noopener">
               Download Resume (PDF)
             </a>
 
-            <!-- Replace with your real LinkedIn URL -->
-            <a class="link-btn" href="https://www.linkedin.com/in/YOUR-LINKEDIN/" target="_blank" rel="noopener">
+            <a class="link-btn"
+               href="https://www.linkedin.com/in/YOUR-LINKEDIN/"
+               target="_blank" rel="noopener">
               LinkedIn
             </a>
           </div>
