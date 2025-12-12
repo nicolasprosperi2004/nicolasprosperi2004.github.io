@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nicolas Prosperi | Resume</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0b0b;
+      color: #f2f2f2;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    /* NEW: headshot styling */
+    .headshot {
+      width: 110px;
+      height: 110px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 1px solid #222;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 44px;
+      margin: 0 0 10px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #cccccc;
+      max-width: 700px;
+      margin: 0;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 22px;
+      background: #ffffff;
+      color: #0b0b0b;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: bold;
+    }
+
+    .pdf-container {
+      margin-top: 45px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #222;
+      background: #111;
+    }
+
+    iframe {
+      width: 100%;
+      height: 1100px;
+      border: none;
+      background: #111;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Photo: make sure this file exists at /static/headshot.jpg -->
+    <img class="headshot" src="static/headshot.jpg" alt="Nicolas Prosperi">
+
+    <h1>Nicolas Prosperi</h1>
+
+    <p>
+      Industrial Engineering student at Penn State with experience in operations,
+      analytics, and product development.
+    </p>
+
+    <!-- IMPORTANT: GitHub Pages uses direct file links (no /resume route) -->
+    <a class="btn" href="Nicolas%20Prosperi%20Resume.pdf" target="_blank">
+      Download Resume (PDF)
+    </a>
+
+    <div class="pdf-container">
+      <!-- IMPORTANT: Embed the PDF directly (no localhost / no Google viewer) -->
+      <iframe src="Nicolas%20Prosperi%20Resume.pdf"></iframe>
+    </div>
+
+    <footer>
+      © 2025 Nicolas Prosperi
+    </footer>
+  </div>
+</body>
+</html>
