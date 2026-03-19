@@ -1,108 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Nicolas Prosperi | Resume</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <title>Nicolas Prosperi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    body{
-      margin:0;
-      font-family: Arial, sans-serif;
-      background:#0b0b0b;
-      color:#f2f2f2;
+    :root {
+      --bg: #0b0b0b;
+      --surface: #111111;
+      --border: #222222;
+      --text: #f0f0f0;
+      --muted: #777777;
+      --dim: #aaaaaa;
     }
 
-    .container{
-      max-width: 1050px;
-      margin: 0 auto;
-      padding: 60px 20px;
-    }
-
-    /* Layout */
-    .grid{
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 40px;
-      align-items: start;
-    }
-
-    .card{
-      background:#111;
-      border: 1px solid #222;
-      border-radius: 16px;
-      padding: 22px;
-    }
-
-    /* Left image */
-    .photo-card{
-      padding: 18px;
-    }
-
-    .headshot{
-      width: 100%;
-      height: 420px;
-      object-fit: cover;
-      border-radius: 12px;
-      display: block;
-      image-rendering: -webkit-optimize-contrast;
-      backface-visibility: hidden;
-    }
-
-    /* Right content */
-    h1{
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-size: 44px;
-      line-height: 1.1;
+      padding: 0;
     }
 
-    .about{
-      margin-top: 10px;
-      font-size: 18px;
-      color: #cfcfcf;
-      line-height: 1.6;
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
     }
 
-    .actions{
-      margin-top: 24px;
+    .container {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 64px 24px 80px;
+    }
+
+    /* ── HERO ── */
+    .hero {
       display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
       align-items: center;
+      gap: 28px;
+      margin-bottom: 48px;
     }
 
-    /* Buttons (same style for both) */
-    .btn{
-      padding: 14px 22px;
-      background:#ffffff;
-      color:#0b0b0b;
-      text-decoration:none;
-      border-radius: 12px;
+    .headshot {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid #2e2e2e;
+      flex-shrink: 0;
+    }
+
+    .hero-text h1 {
+      font-size: 34px;
       font-weight: 700;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
     }
 
-    .btn:hover{
-      transform: translateY(-1px);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    .tagline {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 16px;
     }
 
-    footer{
-      margin-top: 50px;
+    .links-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .links-row a {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--dim);
+      text-decoration: none;
+      padding: 5px 13px;
+      border: 1px solid #252525;
+      border-radius: 6px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .links-row a:hover {
+      color: var(--text);
+      border-color: #3a3a3a;
+    }
+
+    /* ── DIVIDER ── */
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 40px 0;
+    }
+
+    /* ── SECTION LABEL ── */
+    .label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    section {
+      margin-bottom: 0;
+    }
+
+    /* ── EXPERIENCE / LEADERSHIP ── */
+    .entry {
+      margin-bottom: 30px;
+    }
+
+    .entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 2px;
+    }
+
+    .entry-org {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .entry-date {
+      font-size: 13px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .entry-role {
       font-size: 14px;
-      color:#777;
+      color: #999;
+      margin-bottom: 9px;
     }
 
-    /* Mobile */
-    @media (max-width: 820px){
-      .grid{
-        grid-template-columns: 1fr;
+    .bullets {
+      list-style: none;
+      padding: 0;
+    }
+
+    .bullets li {
+      font-size: 14px;
+      color: #b8b8b8;
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 5px;
+    }
+
+    .bullets li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--muted);
+    }
+
+    /* ── PROJECTS ── */
+    .project {
+      margin-bottom: 26px;
+    }
+
+    .project:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-name {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 7px;
+    }
+
+    .project-sub {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    /* ── SKILLS ── */
+    .skills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 13px;
+      font-weight: 400;
+      color: #c0c0c0;
+      background: #141414;
+      border: 1px solid #222;
+      border-radius: 6px;
+      padding: 5px 13px;
+    }
+
+    /* ── RESUME ── */
+    .download-btn {
+      display: inline-block;
+      padding: 11px 22px;
+      background: #ffffff;
+      color: #0b0b0b;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 22px;
+      transition: background 0.15s;
+    }
+
+    .download-btn:hover {
+      background: #e2e2e2;
+    }
+
+    .pdf-wrap {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: 1080px;
+      border: none;
+      background: #111;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 60px;
+      font-size: 13px;
+      color: #444;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 580px) {
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
       }
-      .headshot{
-        height: 360px;
+
+      .hero-text h1 {
+        font-size: 26px;
       }
-      h1{
-        font-size: 38px;
+
+      iframe {
+        height: 520px;
+      }
+
+      .entry-head {
+        flex-direction: column;
+        gap: 2px;
       }
     }
   </style>
@@ -110,43 +271,200 @@
 
 <body>
   <div class="container">
-    <div class="grid">
 
-      <!-- LEFT: headshot -->
-      <div class="card photo-card">
-        <img class="headshot" src="headshot.jpg" alt="Nicolas Prosperi">
-      </div>
-
-      <!-- RIGHT: text + buttons -->
-      <div>
-        <div class="card">
-          <h1>Nicolas Prosperi</h1>
-        </div>
-
-        <div class="card" style="margin-top: 12px;">
-          <p class="about">
-            I am a senior Industrial Engineering student at Penn State University with a global background, having lived in six different countries. Growing up in multiple cultures has shaped how I approach problem-solving, communication, and teamwork. I enjoy traveling, staying active through sports, and working in fast-paced environments where collaboration and adaptability are essential.
-          </p>
-
-          <p class="about" style="margin-top: 14px;">
-            Professionally, I have completed four internships across manufacturing, operations, and supply chain environments. I interned twice with Tenaris, where I supported operational analytics, process improvement initiatives, and cross-functional collaboration within large-scale industrial operations. I also gained experience at Darnel Group and at Ene Cueros, where I was exposed to manufacturing processes and operational workflows. Together, these experiences have strengthened my ability to analyze systems, translate data into actionable insights, and drive continuous improvement.
-          </p>
-
-          <div class="actions">
-            <a class="btn" href="Nicolas%20Prosperi%20Resume.pdf" target="_blank" rel="noopener">
-              Download Resume (PDF)
-            </a>
-
-            <a class="btn" href="https://www.linkedin.com/in/nicolasprosperi/" target="_blank" rel="noopener">
-              LinkedIn
-            </a>
-          </div>
+    <!-- HERO -->
+    <div class="hero">
+      <img class="headshot" src="headshot.jpg" alt="Nicolas Prosperi">
+      <div class="hero-text">
+        <h1>Nicolas Prosperi</h1>
+        <p class="tagline">Industrial Engineering · Penn State · Expected May 2026</p>
+        <div class="links-row">
+          <a href="mailto:nprosperi04@gmail.com">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            Email
+          </a>
+          <a href="https://www.linkedin.com/in/nicolasprosperi/" target="_blank" rel="noopener">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/nicolasprosperi2004" target="_blank" rel="noopener">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            GitHub
+          </a>
+          <a href="tel:+18144098182">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.26h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 5.55 5.55l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
+            (814) 409-8182
+          </a>
         </div>
       </div>
-
     </div>
 
-    <footer>© 2025 Nicolas Prosperi</footer>
+    <hr>
+
+    <!-- EXPERIENCE -->
+    <section>
+      <p class="label">Experience</p>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-org">Tenaris</span>
+          <span class="entry-date">May – Aug 2025</span>
+        </div>
+        <div class="entry-role">Supply Chain Internship</div>
+        <ul class="bullets">
+          <li>Built Power BI dashboards tracking execution rates, revealing a 25% weekly shortfall tied to $80K in financial exposure.</li>
+          <li>Designed a cost allocation model comparing actual vs. optimal routing, uncovering $30K in weekly inefficiencies.</li>
+          <li>Consolidated operational datasets from 12+ Excel sources using Power Query, strengthening report consistency.</li>
+          <li>Created a Power Automate workflow to extract data from email attachments and load it into SharePoint.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-org">Tenaris</span>
+          <span class="entry-date">May – Aug 2024</span>
+        </div>
+        <div class="entry-role">Business Coordination Internship</div>
+        <ul class="bullets">
+          <li>Created Power BI reports tracking bi-weekly operational and cost metrics, identifying $30K in avoidable delays.</li>
+          <li>Analyzed 8+ customer accounts, identifying consistent under-production patterns to strengthen planning accuracy.</li>
+          <li>Optimized rig-delay issue identification using Excel pivot tables, achieving 45% faster problem pinpointing.</li>
+          <li>Supported portfolio-style management of rig costs by tracking financial metrics and spending patterns.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-org">Darnel Group</span>
+          <span class="entry-date">May – Jul 2023</span>
+        </div>
+        <div class="entry-role">Data-Driven Performance Internship</div>
+        <ul class="bullets">
+          <li>Evaluated the manufacturing process and quantified scrap loss, identifying $12K in monthly financial impact.</li>
+          <li>Delivered bi-weekly reports to supervisors, flagging cost impacts from shift-rotation inefficiencies.</li>
+          <li>Streamlined machinery organization to enhance productivity by 4%.</li>
+          <li>Used Python to develop more efficient movement routines for a manufacturing robot arm.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-org">Ene Cueros</span>
+          <span class="entry-date">May – Jul 2021</span>
+        </div>
+        <div class="entry-role">Financial Analyst Internship</div>
+        <ul class="bullets">
+          <li>Managed the inventory portfolio, preventing $25K in unnecessary wood purchases.</li>
+          <li>Conducted profitability reviews across product lines, improving forecast accuracy for 25 monthly units.</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- LEADERSHIP -->
+    <section>
+      <p class="label">Leadership &amp; Volunteering</p>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-org">TEDxPSU</span>
+          <span class="entry-date">Aug 2024 – Present</span>
+        </div>
+        <div class="entry-role">Partnership Director</div>
+        <ul class="bullets">
+          <li>Built relationships with Deans, local organizations, and small businesses to create partnership opportunities.</li>
+          <li>Secured 15% of the organization's budget through community outreach for TEDxPSU's "Papertowns" event.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-org">Venezuelan Student Organization</span>
+          <span class="entry-date">Aug 2022 – Present</span>
+        </div>
+        <div class="entry-role">Member</div>
+        <ul class="bullets">
+          <li>Raised over $1,000 per semester to support Venezuelan citizens in need.</li>
+          <li>Led collaborative events with 15+ organizations, engaging over 80 participants.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-org">Centre County Paws</span>
+          <span class="entry-date">Nov – Dec 2023</span>
+        </div>
+        <div class="entry-role">Student Volunteer</div>
+        <ul class="bullets">
+          <li>Applied process analysis and improvement principles at an animal shelter, improving resource allocation and system efficiency.</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- PROJECTS -->
+    <section>
+      <p class="label">Projects</p>
+
+      <div class="project">
+        <div class="project-name">
+          PROPS — Possible Replacement for Obsolete Parts
+          <span class="project-sub">· B. Braun Medical Capstone</span>
+        </div>
+        <ul class="bullets">
+          <li>Led a team of 6 to develop a web-based tool for finding replacements for obsolete machine parts.</li>
+          <li>Designed AI-driven interface features that reduce part search time to minutes through automated results.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-name">Retail Service Engineering <span class="project-sub">· IE 478</span></div>
+        <ul class="bullets">
+          <li>Redesigned chip shelf layout by reallocating space from low-earning SKUs, improving revenue efficiency.</li>
+          <li>Built a G/G/2 queuing model using a 0.55 arrival rate to optimize checkout performance at a campus supermarket.</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- SKILLS -->
+    <section>
+      <p class="label">Skills</p>
+      <div class="skills-wrap">
+        <span class="tag">Power BI</span>
+        <span class="tag">Microsoft Excel</span>
+        <span class="tag">Power Query</span>
+        <span class="tag">Power Automate</span>
+        <span class="tag">Python</span>
+        <span class="tag">Data Analytics</span>
+        <span class="tag">Forecasting</span>
+        <span class="tag">Cost Analysis</span>
+        <span class="tag">KPI Tracking</span>
+        <span class="tag">Portfolio Monitoring</span>
+        <span class="tag">SolidWorks</span>
+        <span class="tag">Six Sigma Green Belt</span>
+        <span class="tag">OSHA-10</span>
+        <span class="tag">Spanish (Native)</span>
+        <span class="tag">English (Fluent)</span>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- RESUME -->
+    <section>
+      <p class="label">Resume</p>
+      <a class="download-btn" href="Nicolas%20Prosperi%20Resume.pdf" target="_blank">Download PDF</a>
+      <div class="pdf-wrap">
+        <iframe src="Nicolas%20Prosperi%20Resume.pdf" title="Nicolas Prosperi Resume"></iframe>
+      </div>
+    </section>
+
+    <footer>© 2026 Nicolas Prosperi</footer>
+
   </div>
 </body>
 </html>
